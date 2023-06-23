@@ -1,8 +1,8 @@
 package cmd
 
 import (
+	"github.com/clearcodecn/xssh/internal/xssh"
 	"github.com/urfave/cli/v3"
-	"xssh/internal/xssh"
 )
 
 var ListCmd = &cli.Command{

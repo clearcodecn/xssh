@@ -1,4 +1,4 @@
-module xssh
+module github.com/clearcodecn/xssh
 
 go 1.20
 

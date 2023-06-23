@@ -4,11 +4,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/AlecAivazis/survey/v2"
+	"github.com/clearcodecn/xssh/config"
 	"github.com/syndtr/goleveldb/leveldb/util"
 	"log"
 	"os"
 	"os/exec"
-	"xssh/config"
 )
 
 func Ssh() error {

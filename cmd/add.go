@@ -3,9 +3,9 @@ package cmd
 import (
 	"errors"
 	"fmt"
+	"github.com/clearcodecn/xssh/internal/xssh"
 	"github.com/urfave/cli/v3"
 	"strings"
-	"xssh/internal/xssh"
 )
 
 var AddCmd = &cli.Command{

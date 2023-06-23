@@ -2,10 +2,10 @@ package main
 
 import (
 	"context"
+	"github.com/clearcodecn/xssh/cmd"
 	"github.com/urfave/cli/v3"
 	"log"
 	"os"
-	"xssh/cmd"
 )
 
 var (

@@ -3,8 +3,8 @@ package xssh
 import (
 	"encoding/json"
 	"errors"
+	"github.com/clearcodecn/xssh/config"
 	"github.com/syndtr/goleveldb/leveldb"
-	"xssh/config"
 )
 
 const (

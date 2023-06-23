@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/AlecAivazis/survey/v2"
+	"github.com/clearcodecn/xssh/config"
 	"github.com/syndtr/goleveldb/leveldb/util"
 	"log"
-	"xssh/config"
 )
 
 func Del() error {

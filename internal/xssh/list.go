@@ -3,9 +3,9 @@ package xssh
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/clearcodecn/xssh/config"
 	"github.com/syndtr/goleveldb/leveldb/util"
 	"log"
-	"xssh/config"
 )
 
 func List(subStr string) {
