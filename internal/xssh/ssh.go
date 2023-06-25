@@ -28,7 +28,7 @@ func Ssh() error {
 			log.Println("[warn] parse json failed:", err.Error())
 			continue
 		}
-		tab := fmt.Sprintf("[%s]\t%s@%s\t-p\t%s\t-i\t%s\n", data.Alias, data.Username, data.Host, data.Port, data.SshKey)
+		tab := fmt.Sprintf("[%s]\t%s@%s\t-p\t%s\t-i\t%s", data.Alias, data.Username, data.Host, data.Port, data.SshKey)
 		options = append(options, tab)
 		models = append(models, &data)
 	}
