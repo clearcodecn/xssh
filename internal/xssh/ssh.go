@@ -47,6 +47,7 @@ func Ssh() error {
 	if mdl == nil {
 		return nil
 	}
+	config.CloseDB(db)
 
 	cmd := exec.Command("ssh",
 		fmt.Sprintf("%s@%s", mdl.Username, mdl.Host),

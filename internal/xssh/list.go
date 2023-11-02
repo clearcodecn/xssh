@@ -10,6 +10,8 @@ import (
 
 func List(subStr string) {
 	db := config.GetDB()
+	defer config.CloseDB(db)
+
 	it := db.NewIterator(util.BytesPrefix([]byte(keyPrefix)), nil)
 	for it.Next() {
 		val := it.Value()

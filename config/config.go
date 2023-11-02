@@ -3,7 +3,6 @@ package config
 import (
 	"github.com/mitchellh/go-homedir"
 	"github.com/syndtr/goleveldb/leveldb"
-	"log"
 	"os"
 	"path/filepath"
 )
@@ -11,19 +10,20 @@ import (
 var (
 	confPath = ".xssh"
 	db       *leveldb.DB
+	dbPath   string
 )
 
 func init() {
 	dir, _ := homedir.Dir()
-	dbPath := filepath.Join(dir, confPath)
+	dbPath = filepath.Join(dir, confPath)
 	os.MkdirAll(dbPath, 0777)
-	var err error
-	db, err = leveldb.OpenFile(dbPath, nil)
-	if err != nil {
-		log.Fatal(err)
-	}
 }
 
 func GetDB() *leveldb.DB {
+	db, _ = leveldb.OpenFile(dbPath, nil)
 	return db
+}
+
+func CloseDB(db *leveldb.DB) {
+	db.Close()
 }

@@ -14,6 +14,8 @@ const (
 func Add(model *XSSHModel, overWrite bool) error {
 	var write bool
 	db := config.GetDB()
+	defer config.CloseDB(db)
+	
 	data, err := db.Get([]byte(keyPrefix+model.Key()), nil)
 	if err != nil {
 		if err != leveldb.ErrNotFound {

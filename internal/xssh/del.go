@@ -17,6 +17,8 @@ func Del() error {
 
 	var models []*XSSHModel
 	db := config.GetDB()
+	defer config.CloseDB(db)
+
 	it := db.NewIterator(util.BytesPrefix([]byte(keyPrefix)), nil)
 	for it.Next() {
 		val := it.Value()
@@ -26,7 +28,7 @@ func Del() error {
 			log.Println("[warn] parse json failed:", err.Error())
 			continue
 		}
-		tab := fmt.Sprintf("[%s]\t%s@%s\t-p\t%s\t-i\t%s\n", data.Alias, data.Username, data.Host, data.Port, data.SshKey)
+		tab := fmt.Sprintf("[%s]\t%s@%s\t-p\t%s\t-i\t%s", data.Alias, data.Username, data.Host, data.Port, data.SshKey)
 		options = append(options, tab)
 		models = append(models, &data)
 	}
@@ -42,6 +44,5 @@ func Del() error {
 			break
 		}
 	}
-
-	return db.Delete([]byte(mdl.Key()), nil)
+	return db.Delete([]byte(keyPrefix+mdl.Key()), nil)
 }
